@@ -1,5 +1,5 @@
 const nts = require('express').Router();
-// const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile } = require('../public/assets/js/fsUtils');
 
 // GET Route for retrieving all the notes
@@ -8,18 +8,17 @@ nts.get('/', (req, res) => {
     }
 );
   
-
-// POST Route for submitting feedback
+// POST Route for submitting notes
 nts.post('/', (req, res) => {
   // Destructuring assignment for the items in req.body
   const { title, text} = req.body;
 
   // If all the required properties are present
   if (title && text) {
-    // Variable for the object we will save
     const newNote = {
       title,
       text,
+      note_id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/db.json');

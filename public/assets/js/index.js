@@ -52,21 +52,21 @@ const saveNote = (note) =>
     body: JSON.stringify(note)
   });
 
-const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
+// const deleteNote = (id) =>
+//   fetch(`/api/notes/${id}`, {
+//     method: 'DELETE',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   });
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
   hide(clearBtn);
   // console.log(activeNote.title);
   // console.log(activeNote.text);
-  if (activeNote.id) {
-    // console.log(activeNote.id);
+  if (activeNote.note_id) {
+    // console.log(activeNote.note_id);
     show(newNoteBtn);
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
@@ -75,13 +75,10 @@ const renderActiveNote = () => {
   } else {
     // console.log('no id');
     hide(newNoteBtn);
-    noteTitle.value = activeNote.title;
-    noteText.value = activeNote.text;
-    show(newNoteBtn);
-    // noteTitle.removeAttribute('readonly');
-    // noteText.removeAttribute('readonly');
-    // noteTitle.value = '';
-    // noteText.value = '';
+    noteTitle.removeAttribute('readonly');
+    noteText.removeAttribute('readonly');
+    noteTitle.value = '';
+    noteText.value = '';
   }
 };
 
@@ -119,6 +116,7 @@ const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
   // console.log(`en noteView  ${activeNote.title}`);
+  // console.log(`en noteView  ${activeNote.note_id}`);
   renderActiveNote();
 };
 
