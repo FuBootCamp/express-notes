@@ -1,6 +1,18 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Go to the Bank",
+        "text": "$1000"
+    },
+    {
+        "title": "Lounch with a new client",
+        "text": "Starbucks"
+    },
+    {
+        "title": "Take a run",
+        "text": "5k"
+    },
+    {
+        "title": "Office meeting",
+        "text": "Monday 8 am"
     }
 ]
