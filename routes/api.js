@@ -1,9 +1,8 @@
+// api.js routing api/notes
 const router = require('express').Router();
-
-// Mount the router.use for handle notes
+// mount api/notes for getNotes and saveNote at index
 const notesRouter = require('./notes');
 router.use('/notes', notesRouter);
-// console.log('Hey, routes/index.js passed');
 
 module.exports = router;
 

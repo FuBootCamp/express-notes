@@ -1,6 +1,6 @@
 const nts = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
-const { readAndAppend, readFromFile } = require('../public/assets/js/fsUtils');
+const { readAndAppend, readFromFile } = require('../public/assets/js/fs');
 
 // GET Route for retrieving all the notes
 nts.get('/', (req, res) => {

@@ -16,11 +16,8 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   clearBtn = document.querySelector('.clear-btn');
   noteList = document.querySelectorAll('.list-container .list-group');
-  // console.log('Inside the IF statment if pathname is /notes');
-} else {
-  // console.log('at the ELSE statment because pathname is not /notes');
-  // console.log(window.location.pathname);
-}
+
+} 
 
 // Show an element
 const show = (elem) => {
@@ -63,17 +60,13 @@ const saveNote = (note) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
   hide(clearBtn);
-  // console.log(activeNote.title);
-  // console.log(activeNote.text);
   if (activeNote.note_id) {
-    // console.log(activeNote.note_id);
     show(newNoteBtn);
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
-    // console.log('no id');
     hide(newNoteBtn);
     noteTitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
@@ -115,8 +108,6 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
-  // console.log(`en noteView  ${activeNote.title}`);
-  // console.log(`en noteView  ${activeNote.note_id}`);
   renderActiveNote();
 };
 
